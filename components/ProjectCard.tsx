@@ -13,7 +13,19 @@ export default function ProjectCard({ title, description, tech = [], link, image
   return (
     <article className="rounded-lg border p-0 shadow-sm transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden">
       <div className="h-36 sm:h-44 w-full overflow-hidden bg-black/5">
-        <img src={imgSrc} alt={`${title} screenshot`} className="object-cover w-full h-full" />
+        <img
+          src={imgSrc}
+          alt={`${title} screenshot`}
+          className="object-cover w-full h-full"
+          onError={(e) => {
+            // fallback to placeholder if image fails to load in deployment
+            const t = e.currentTarget as HTMLImageElement;
+            if (!t.dataset.fallback) {
+              t.dataset.fallback = "1";
+              t.src = "/images/project-placeholder.svg";
+            }
+          }}
+        />
       </div>
 
       <div className="p-5">
