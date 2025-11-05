@@ -1,65 +1,122 @@
-import Image from "next/image";
+import ProjectCard from "@/components/ProjectCard";
+import SkillBadge from "@/components/SkillBadge";
+
+const projects = [
+  {
+    title: "Personal Website",
+    description: "This portfolio (built with Next.js) showcasing projects and writing.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    link: "#",
+    github: "https://github.com/crististg/crististg-website",
+    image: "/images/personal-website.png",
+  },
+  {
+    title: "Wizztech Website",
+    description: "Wizztech — a marketing site built with modern Next.js tooling.",
+    tech: ["Next.js", "React", "TypeScript"],
+    link: "https://wizztech-ro.vercel.app/",
+    github: "https://github.com/mihai888nextlab/wizztech.ro",
+    image: "/images/wizztech-website.png",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="mx-auto max-w-full">
+      <section className="py-8">
+        <div className="mx-auto max-w-5xl px-6">
+          <h1 className="text-5xl font-extrabold leading-tight">Hi, I’m Cristian Stiegelbauer.</h1>
+          <p className="mt-4 text-lg text-zinc-600 max-w-3xl">
+            I’m a 16-year-old high school student from Timișoara (Theoretical High School "Grigore Moisil"). I’m passionate about Web Development, Low-Level Programming, Operating Systems, and building community and business initiatives.
           </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" className="rounded-full bg-black px-4 py-2 text-sm text-white transition-transform hover:scale-105">Work with me</a>
+            <a href="/projects" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">See projects</a>
+            <a href="/about" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">About me</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section id="skills" className="py-8">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-semibold">Skills & Passions</h2>
+
+          {/* preview: only show a few skills on the homepage */}
+          {(() => {
+            const all = [
+              { name: "C / C++", percent: 85 },
+              { name: "Python", percent: 65 },
+              { name: "React", percent: 70 },
+              { name: "Tailwind CSS", percent: 70 },
+              { name: "TypeScript", percent: 70 },
+              { name: "JavaScript", percent: 70 },
+              { name: "Docker", percent: 50 },
+              { name: "Linux", percent: 70 },
+            ];
+
+            const preview = all.slice(0, 4); // show only first 4 as a preview
+
+            return (
+              <>
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+                  {preview.map((s) => (
+                    <div key={s.name}>
+                      <SkillBadge name={s.name} percent={s.percent} />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-4">
+                  <a href="/skills" className="text-sm font-medium text-blue-600 hover:underline">See all skills →</a>
+                </div>
+              </>
+            );
+          })()}
+
+          <div className="mt-6">
+            <h3 className="text-lg font-medium">Passions</h3>
+            <p className="mt-2 text-zinc-600">
+              Beyond coding, I’m active in robotics (FTC), where I work on mechanical design, programming controllers, and integrating sensors as part of a school team. I also mentor younger learners through CoderDojo, helping newcomers build small projects and learn programming fundamentals.
+            </p>
+
+            <p className="mt-3 text-zinc-600">
+              I regularly participate in developer networking events and tech meetups, and volunteer at local community events to promote STEM and open-source. These activities help me learn faster, meet collaborators, and give back to the local tech community.
+            </p>
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section id="projects" className="py-8">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {projects.map((p) => (
+              <ProjectCard
+                key={p.title}
+                title={p.title}
+                description={p.description}
+                tech={p.tech}
+                link={p.link}
+                github={p.github}
+                image={p.image}
+              />
+            ))}
+          </div>
+          <div className="mt-6">
+            <a href="/projects" className="text-sm font-medium text-blue-600 hover:underline">See all projects →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* About section removed per user request (kept site focused: Skills → Projects → Contact) */}
+
+      <section id="contact" className="py-8">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-2xl font-semibold">Contact</h2>
+          <p className="mt-4">Email: <a href="mailto:cristi.stiegelbauer@gmail.com" className="text-blue-600 hover:underline">cristi.stiegelbauer@gmail.com</a></p>
+        </div>
+      </section>
     </div>
   );
 }
