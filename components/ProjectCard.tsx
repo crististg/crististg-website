@@ -12,7 +12,7 @@ export default function ProjectCard({ title, description, tech = [], link, image
 
   return (
     <article className="rounded-lg border p-0 shadow-sm transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden">
-      <div className="h-44 w-full overflow-hidden bg-black/5">
+      <div className="h-36 sm:h-44 w-full overflow-hidden bg-black/5">
         <img src={imgSrc} alt={`${title} screenshot`} className="object-cover w-full h-full" />
       </div>
 

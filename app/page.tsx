@@ -3,12 +3,12 @@ import SkillBadge from "@/components/SkillBadge";
 
 const projects = [
   {
-    title: "Personal Website",
-    description: "This portfolio (built with Next.js) showcasing projects and writing.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-    link: "#",
-    github: "https://github.com/crististg/crististg-website",
-    image: "/images/personal-website.png",
+    title: "TaskHive",
+    description: "TaskHive — a task & hierarchy management tool for teams (taskhive.tech).",
+    tech: ["React", "Node.js", "AI (RAG)"],
+    link: "https://taskhive.tech",
+    github: "https://github.com/mihai888nextlab/taskhive",
+    image: "/images/taskhive.png",
   },
   {
     title: "Wizztech Website",
@@ -31,7 +31,7 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="rounded-full bg-black px-4 py-2 text-sm text-white transition-transform hover:scale-105">Work with me</a>
+            <a href="mailto:hello@cristi.example" className="rounded-full bg-black px-4 py-2 text-sm text-white transition-transform hover:scale-105">Work with me</a>
             <a href="/projects" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">See projects</a>
             <a href="/about" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">About me</a>
           </div>
@@ -40,15 +40,15 @@ export default function Home() {
 
       <section id="skills" className="py-8">
         <div className="mx-auto max-w-5xl px-6">
-          <h2 className="text-2xl font-semibold">Skills & Passions</h2>
+          <h2 className="text-2xl font-semibold">Skills</h2>
 
           {/* preview: only show a few skills on the homepage */}
           {(() => {
             const all = [
-              { name: "C / C++", percent: 85 },
+              { name: "C++", percent: 85 },
               { name: "Python", percent: 65 },
               { name: "React", percent: 70 },
-              { name: "Tailwind CSS", percent: 70 },
+              { name: "Tailwind", percent: 70 },
               { name: "TypeScript", percent: 70 },
               { name: "JavaScript", percent: 70 },
               { name: "Docker", percent: 50 },

@@ -2,10 +2,10 @@ import SkillBadge from "@/components/SkillBadge";
 
 export default function SkillsPage() {
   const skills = [
-    { name: "C / C++", level: "Intermediate", percent: 85 },
+    { name: "C++", level: "Intermediate", percent: 85 },
     { name: "Python", level: "Intermediate", percent: 65 },
     { name: "React", level: "Intermediate", percent: 70 },
-    { name: "Tailwind CSS", level: "Intermediate", percent: 70 },
+    { name: "Tailwind", level: "Intermediate", percent: 70 },
     { name: "TypeScript", level: "Intermediate", percent: 70 },
     { name: "JavaScript", level: "Intermediate", percent: 70 },
     { name: "Docker", level: "Beginner-Intermediate", percent: 50 },

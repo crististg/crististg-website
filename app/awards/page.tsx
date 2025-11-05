@@ -1,7 +1,7 @@
 export default function AwardsPage() {
   const awards = [
-    { title: "Digital Innovation & Creativity — TaskHive (Silver Medal)", year: 2024, org: "National Olympiad" },
-    { title: "National Olympiad in Informatics — 57th place", year: 2024, org: "National Olympiad" },
+    { title: "Digital Innovation & Creativity — TaskHive (Silver Medal)", year: 2025, org: "National Olympiad" },
+    { title: "National Olympiad in Informatics — 57th place", year: 2025, org: "National Olympiad" },
   ];
 
   return (

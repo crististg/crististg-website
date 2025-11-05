@@ -2,8 +2,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-black/6 py-8">
       <div className="mx-auto max-w-4xl px-6 text-sm text-zinc-600">
-        <div className="flex items-center justify-between gap-4">
-          <span>© {new Date().getFullYear()} Cristi — Built with Next.js</span>
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} <a href="https://github.com/crististg/" className="hover:opacity-80">crististg</a></span>
 
           <div className="flex items-center gap-4">
             <a
@@ -13,11 +13,9 @@ export default function Footer() {
               aria-label="Instagram"
               className="hover:opacity-80"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" />
-              </svg>
+              {/* Instagram - Simple Icons (CDN) */}
+              {/* monochrome brand icon via Simple Icons CDN (zinc-600) */}
+              <img src="https://cdn.simpleicons.org/instagram/52525b" alt="Instagram" className="w-5 h-5 block" />
             </a>
 
             <a
@@ -27,12 +25,10 @@ export default function Footer() {
               aria-label="LinkedIn"
               className="hover:opacity-80"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M7.5 10.5V17" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                <circle cx="7.5" cy="7.5" r="1" fill="currentColor" />
-                <path d="M11 12.5v4.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                <path d="M11 9.5c1.2 0 2.5.4 3.2 1.7V9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              {/* Bootstrap Icons 'linkedin' glyph (inline, monochrome via currentColor) */}
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146z" />
+                <path d="M4.943 12.248V6.169H2.542v6.079h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.327.54-1.327 1.248 0 .694.521 1.248 1.327 1.248zM6.286 12.248h2.4V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.87 0 1.217.664 1.217 1.637v2.116h2.4V9.19c0-2.538-1.355-3.716-3.163-3.716-1.47 0-2.123.811-2.49 1.381h.035V6.169H6.286v6.079z" />
               </svg>
             </a>
 
@@ -43,9 +39,8 @@ export default function Footer() {
               aria-label="GitHub"
               className="hover:opacity-80"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <path d="M12 2C7.58 2 4 5.58 4 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38C17.71 16.53 20 13.54 20 10c0-4.42-3.58-8-8-8z" stroke="currentColor" strokeWidth="0.6" />
-              </svg>
+              {/* GitHub - Simple Icons (CDN) */}
+              <img src="https://cdn.simpleicons.org/github/52525b" alt="GitHub" className="w-5 h-5 block" />
             </a>
 
             <a
@@ -55,9 +50,10 @@ export default function Footer() {
               aria-label="Curriculum Vitae (placeholder, add /public/cv.pdf later)"
               className="hover:opacity-80"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M14 2v6h6" stroke="currentColor" strokeWidth="1.2" />
+              {/* CV/document icon (cleaner) */}
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M14 2v6h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M8 13h8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
                 <path d="M8 17h8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
               </svg>
