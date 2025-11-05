@@ -43,25 +43,36 @@ export default function SkillBadge({ name, className = "" }: Props) {
   const level = ("level" in (arguments[0] || {}) && (arguments[0] as any).level) || undefined;
 
   return (
-    <div className={`flex flex-col gap-2 rounded-md border px-3 py-2 ${className}`}>
-      <div className="flex items-center gap-3">
-        <div className="shrink-0" aria-hidden>
+    <div className={`${className}`}>
+      {/* Mobile: minimal row showing only icon + name */}
+      <div className="flex items-center gap-3 rounded-md border px-3 py-2 sm:hidden">
+        <div className="shrink-0 w-7 h-7" aria-hidden>
           <Icon name={name} />
         </div>
-        <div className="flex-1">
-          <div className="text-sm font-medium">{name}</div>
-          {level && <div className="text-xs text-zinc-500">{level}</div>}
-        </div>
-        {typeof percent === "number" && (
-          <div className="text-sm text-zinc-500">{percent}%</div>
-        )}
+        <div className="text-sm font-medium truncate">{name}</div>
       </div>
 
-      {typeof percent === "number" && (
-        <div className="h-2 w-full rounded-full bg-black/5">
-          <div className="h-2 rounded-full bg-black" style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
+      {/* Desktop/tablet: original stacked layout with percent, level and progress bar */}
+      <div className="hidden sm:flex flex-col gap-2 rounded-md border px-3 py-2">
+        <div className="flex items-center gap-3">
+          <div className="shrink-0" aria-hidden>
+            <Icon name={name} />
+          </div>
+          <div className="flex-1">
+            <div className="text-sm font-medium">{name}</div>
+            {level && <div className="text-xs text-zinc-500">{level}</div>}
+          </div>
+          {typeof percent === "number" && (
+            <div className="text-sm text-zinc-500">{percent}%</div>
+          )}
         </div>
-      )}
+
+        {typeof percent === "number" && (
+          <div className="h-2 w-full rounded-full bg-black/5">
+            <div className="h-2 rounded-full bg-black" style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
