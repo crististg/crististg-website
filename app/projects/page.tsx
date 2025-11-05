@@ -8,7 +8,7 @@ const projects = [
     link: "#",
     github: "https://github.com/crististg/crististg-website",
     // image placed in public/images/
-    image: "/images/personal-website.png",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/personal-website.png?raw=true",
   },
   {
     title: "Wizztech Website",
@@ -16,7 +16,7 @@ const projects = [
     tech: ["Next.js", "React", "TypeScript"],
     link: "https://wizztech-ro.vercel.app/",
     github: "https://github.com/mihai888nextlab/wizztech.ro",
-    image: "/images/wizztech-website.png",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/wizztech-website.png?raw=true",
   },
   {
     title: "TaskHive",
@@ -24,7 +24,7 @@ const projects = [
     tech: ["React", "Node.js", "AI (RAG)"],
     link: "https://taskhive.tech",
     github: "https://github.com/mihai888nextlab/taskhive",
-    image: "/images/taskhive.png",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/taskhive.png?raw=true",
   },
   {
     title: "comppg",
@@ -32,7 +32,7 @@ const projects = [
     tech: ["C++"],
     // no external demo link for library, only the GitHub repo
     github: "https://github.com/crististg/comppg",
-    image: "/images/comppg.png",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/comppg.png?raw=true",
   },
 ];
 
