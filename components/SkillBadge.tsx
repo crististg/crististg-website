@@ -45,7 +45,7 @@ export default function SkillBadge({ name, className = "" }: Props) {
   return (
     <div className={`${className}`}>
       {/* Mobile: minimal row showing only icon + name */}
-      <div className="flex items-center gap-3 rounded-md border px-3 py-2 sm:hidden">
+  <div className="flex items-center gap-3 rounded-md border px-3 py-2 sm:hidden micro-badge">
         <div className="shrink-0 w-7 h-7" aria-hidden>
           <Icon name={name} />
         </div>
@@ -53,7 +53,7 @@ export default function SkillBadge({ name, className = "" }: Props) {
       </div>
 
       {/* Desktop/tablet: original stacked layout with percent, level and progress bar */}
-      <div className="hidden sm:flex flex-col gap-2 rounded-md border px-3 py-2">
+  <div className="hidden sm:flex flex-col gap-2 rounded-md border px-3 py-2 micro-badge">
         <div className="flex items-center gap-3">
           <div className="shrink-0" aria-hidden>
             <Icon name={name} />

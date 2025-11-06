@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="border-t border-black/6 py-8">
       <div className="mx-auto max-w-4xl px-6 text-sm text-zinc-600">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} <a href="https://github.com/crististg/" className="hover:opacity-80">crististg</a></span>
+          <span>© {new Date().getFullYear()} <a href="https://github.com/crististg/" className="micro-link">crististg</a></span>
 
           <div className="flex items-center gap-4">
             <a
@@ -11,7 +11,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="hover:opacity-80"
+              className="micro-icon"
             >
               {/* Instagram - Simple Icons (CDN) */}
               {/* monochrome brand icon via Simple Icons CDN (zinc-600) */}
@@ -23,7 +23,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="hover:opacity-80"
+              className="micro-icon"
             >
               {/* Bootstrap Icons 'linkedin' glyph (inline, monochrome via currentColor) */}
               <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden>
@@ -37,7 +37,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              className="hover:opacity-80"
+              className="micro-icon"
             >
               {/* GitHub - Simple Icons (CDN) */}
               <img src="https://cdn.simpleicons.org/github/52525b" alt="GitHub" className="w-5 h-5 block" />
@@ -48,7 +48,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Curriculum Vitae (placeholder, add /public/cv.pdf later)"
-              className="hover:opacity-80"
+              className="micro-link"
             >
               {/* CV/document icon (cleaner) */}
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
