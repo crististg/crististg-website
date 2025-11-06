@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# crististg-website
 
-## Getting Started
+Personal portfolio built with Next.js to showcase projects, skills and contact information.
 
-First, run the development server:
+This repo contains the source for crististg.com — a small, performant portfolio with attention to accessibility and microinteractions.
+
+## What's included / recent changes
+
+- Polished microinteractions (buttons, links, cards, badges) implemented in `app/globals.css` and applied across components for a tactile feel.
+- GitHub Actions CI workflow (`.github/workflows/ci.yml`) that runs lint, build and a Lighthouse smoke check and uploads the report as an artifact.
+
+## Local development
+
+Install dependencies and run the dev server:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run the linter:
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How to test microinteractions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Open the site locally and try hovering links, the Contact button in the header, project cards, skill badges and social icons in the footer.
+- For keyboard accessibility check: Tab through interactive elements and verify visible focus outlines and meaningful aria-labels.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing / Next improvements
 
-## Deploy on Vercel
+If you want to make changes or improve the site, here are suggested next steps (high impact):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Add detailed project case studies in `app/projects/[slug]/page.tsx` (problem, role, architecture, screenshots, links).
+- Replace external `<img>` usage with Next.js `Image` for better LCP and CWV.
+- Add reduced-motion support and finish accessibility fixes.
+- Add unit tests (Jest + RTL) and Playwright smoke tests; extend CI to run tests and Lighthouse thresholds.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- External images (Simple Icons CDN) are currently used for some icons. If you change to `next/image`, update `next.config.ts` to allow the CDN domain.
+- The Lighthouse step in CI is a smoke check and uploads `lighthouse.json` artifact for inspection. Adjust it to fail the job on low scores if you prefer.
+
+---
+
+If you'd like, I can implement any of the next improvements above — tell me which and I will start.

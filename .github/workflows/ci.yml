@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Start production server
+        # Start the built Next.js app in the background so we can run a Lighthouse smoke check.
+        # `next start` serves the app from the .next build output.
+        run: |
+          nohup npm run start --silent &>/dev/null &
+          echo $! > .next-server.pid
+
+      - name: Wait for server
+        # wait up to 30s for the server to accept connections
+        run: npx wait-on http://localhost:3000 -t 30000
+
+      - name: Lighthouse smoke check
+        # Run a lightweight Lighthouse audit against the locally running server.
+        # This step is best-effort: it won't fail the job if Lighthouse errors.
+        run: |
+          npx -y lighthouse http://localhost:3000 --output=json --output-path=./lighthouse.json --chrome-flags="--headless" || true
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lighthouse.json
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f .next-server.pid ]; then kill "$(cat .next-server.pid)" || true; fi
