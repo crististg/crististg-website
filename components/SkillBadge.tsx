@@ -68,8 +68,11 @@ export default function SkillBadge({ name, className = "" }: Props) {
         </div>
 
         {typeof percent === "number" && (
-          <div className="h-2 w-full rounded-full bg-black/5">
-            <div className="h-2 rounded-full bg-black" style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
+          <div className="h-2 w-full rounded-full bg-zinc-800/10 dark:bg-zinc-200/8">
+            <div
+              className="h-2 rounded-full bg-zinc-800 dark:bg-zinc-200"
+              style={{ width: `${Math.max(0, Math.min(100, percent))}%` }}
+            />
           </div>
         )}
       </div>

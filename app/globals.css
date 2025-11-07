@@ -168,3 +168,284 @@ body {
   outline: 3px solid rgba(99,102,241,0.12);
   outline-offset: 3px;
 }
+
+/* Modal styles matching requested centered window design */
+.modal-inner {
+  margin: 0 auto;
+  border-radius: 12px;
+  /* Fully opaque card so content doesn't blend with the backdrop */
+  background: rgba(255,255,255,1);
+  /* stronger border for accessible contrast (thicker) */
+  border: 2px solid rgba(2,6,23,0.14);
+  box-shadow: 0 30px 90px rgba(2,6,23,0.35), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.36);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+.modal-container {
+  max-width: 1100px;
+  width: 100%;
+}
+.no-scroll {
+  overflow: hidden !important;
+}
+.modal-panel {
+  background: var(--color-background);
+  border-radius: 8px;
+  padding: 16px;
+}
+.modal-panel { background: transparent; }
+.modal-inner {
+  padding: 6px; /* small outer padding so inner panels have breathing room */
+}
+
+/* Entrance animation for the modal window and fade for the overlay */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.996); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-overlay {
+  animation: overlayFade 260ms ease both;
+}
+.modal-inner {
+  animation: modalIn 260ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+/* Improve image frame inside the left panel */
+.modal-left .relative {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.12);
+  /* fallback frame style for any relative container */
+  border: 2px solid rgba(2,6,23,0.06);
+}
+
+/* Explicit image frame for the modal's main screenshot */
+.modal-image-frame {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(2,6,23,0.14);
+  border: 3px solid rgba(2,6,23,0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  .modal-image-frame { border: 3px solid rgba(255,255,255,0.06); box-shadow: 0 18px 40px rgba(2,6,23,0.5); }
+}
+
+/* Right panel visual tweaks */
+.modal-right h3 { margin: 0; }
+.modal-right p { color: rgba(17,24,39,0.9); line-height: 1.6; }
+.modal-right h3 { color: var(--color-foreground); }
+
+/* Header actions (Live / Code) */
+.modal-actions { display: flex; gap: 8px; align-items: center; }
+.modal-action-btn {
+  /* Use same visual language as site micro-btn */
+  border-radius: 9999px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(2,6,23,0.08);
+  background: rgba(255,255,255,0.02);
+  color: var(--color-foreground);
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms ease, background-color 160ms ease;
+  will-change: transform, box-shadow, background-color;
+}
+.modal-action-btn:hover,
+.modal-action-btn:focus {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+.modal-action-btn:focus { outline: none; }
+
+/* Ensure text is readable in dark mode */
+@media (prefers-color-scheme: dark) {
+  .modal-right p { color: rgba(255,255,255,0.86); }
+  .modal-action-btn { border: 1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.02); color: rgba(255,255,255,0.9); }
+  .modal-action-btn:hover { background: rgba(255,255,255,0.04); }
+}
+
+/* Layout helpers for right panel */
+.modal-right { display: flex; flex-direction: column; gap: 12px; }
+.modal-body { flex: 1 1 auto; }
+.modal-actions-bottom { display: flex; gap: 10px; justify-content: flex-end; align-items: center; margin-top: 12px; }
+
+/* Ensure modal actions stick to bottom on taller modals */
+.modal-inner { display: block; }
+.modal-right .micro-btn { margin-left: 6px; }
+
+/* Close button hover & focus */
+.modal-close:hover { background: rgba(2,6,23,0.08); transform: translateY(-1px); }
+.modal-close:focus { box-shadow: 0 6px 18px rgba(2,6,23,0.12); }
+
+/* Thumbnail buttons inside modal */
+.modal-left .mt-3 button {
+  border: 2px solid rgba(2,6,23,0.06);
+  background: rgba(255,255,255,0.02);
+  padding: 2px;
+}
+.modal-left .mt-3 button:hover { transform: translateY(-2px); }
+.modal-left .mt-3 button[aria-pressed="true"] {
+  border-color: rgba(99,102,241,0.9);
+  box-shadow: 0 6px 18px rgba(99,102,241,0.06);
+}
+
+/* Slightly larger max width on very wide displays */
+@media (min-width: 1400px) {
+  .modal-container { max-width: 1200px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay, .modal-inner, .modal-left .mt-3 button { animation: none !important; transition: none !important; }
+}
+.modal-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.modal-left {
+  border-right: 1px solid rgba(2,6,23,0.04);
+  padding-right: 12px;
+}
+.modal-right {
+  padding-left: 12px;
+}
+.modal-divider {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  bottom: 8%;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(2,6,23,0.06));
+  transform: translateX(-0.5px);
+  pointer-events: none;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 9999px; /* pill/circular like site buttons */
+  padding: 8px;
+  border: 1px solid rgba(2,6,23,0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms ease, background-color 160ms ease;
+}
+.modal-close svg { color: var(--color-foreground); width: 14px; height: 14px; }
+.modal-close:hover { transform: translateY(-2px) scale(1.02); background: rgba(255,255,255,0.04); box-shadow: 0 10px 30px rgba(2,6,23,0.06); }
+.modal-close:focus { box-shadow: 0 10px 30px rgba(2,6,23,0.09); }
+
+/* Dark mode tweaks: make modal slightly lighter than page and increase contrast */
+@media (prefers-color-scheme: dark) {
+  .modal-inner {
+    /* fully opaque in dark mode as well so it reads as a solid foreground window */
+    background: rgba(10,11,13,1);
+    /* thicker border for dark mode */
+    border: 2px solid rgba(255,255,255,0.10);
+    box-shadow: 0 30px 90px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+  .modal-panel { background: transparent; }
+  .modal-close { background: rgba(255,255,255,0.02); }
+  .modal-close svg { color: rgba(255,255,255,0.85); }
+  .modal-close:hover { background: rgba(255,255,255,0.04); }
+  .modal-left { border-right: 1px solid rgba(255,255,255,0.03); }
+  .modal-divider { background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(255,255,255,0.03)); }
+  .modal-overlay { background: rgba(2,6,23,0.5); }
+}
+
+@media (max-width: 768px) {
+  /* Stack columns into a single column and make the modal fit smaller viewports */
+  .modal-columns { grid-template-columns: 1fr; gap: 12px; }
+  .modal-left { border-right: none; padding-right: 0; }
+  .modal-right { padding-left: 0; }
+
+  /* Reduce overlay padding so modal nearly fills the viewport on small devices */
+  .modal-overlay { padding: 12px; }
+
+  /* Make the modal window constrained by the viewport height and scrollable when needed */
+  .modal-inner {
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  /* Ensure the main image/frame scales to the container width */
+  .modal-image-frame {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* Keep the screenshot visible but constrained on short screens */
+    max-height: 46vh;
+    display: block;
+  }
+
+  /* Make sure Next/Image or plain img inside the frame behaves and doesn't overflow */
+  .modal-image-frame img,
+  .modal-image-frame picture,
+  .modal-image-frame > div {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* Thumbnails become a horizontally scrollable row for easy touch navigation */
+  .modal-left .mt-3 {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-left .mt-3 button {
+    flex: 0 0 auto;
+    min-width: 64px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  /* Increase close button touch target and spacing */
+  .modal-close {
+    top: 14px;
+    right: 14px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .modal-close svg { width: 18px; height: 18px; }
+
+  /* Move action buttons to full-width stacked layout for easier tapping */
+  .modal-actions-bottom {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    margin-top: 12px;
+  }
+  .modal-action-btn { width: 100%; text-align: center; }
+
+  /* Increase readable font size and spacing for small screens */
+  .modal-right h3 { font-size: 1.05rem; }
+  .modal-right p { font-size: 0.98rem; }
+
+  /* Make sure divider doesn't unexpectedly appear when stacked */
+  .modal-divider { display: none; }
+}
