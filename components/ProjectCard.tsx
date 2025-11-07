@@ -21,10 +21,16 @@ export default function ProjectCard({ title, description, tech = [], link, image
     <>
       <article
         role="button"
+        aria-haspopup="dialog"
+        aria-expanded={open}
         tabIndex={0}
         onClick={() => setOpen(true)}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") setOpen(true);
+          if (e.key === "Enter") setOpen(true);
+          if (e.key === " ") {
+            e.preventDefault();
+            setOpen(true);
+          }
         }}
         className="rounded-lg border p-0 shadow-sm transition-transform hover:scale-[1.02] hover:shadow-md overflow-hidden cursor-pointer"
       >

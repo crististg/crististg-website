@@ -169,6 +169,33 @@ body {
   outline-offset: 3px;
 }
 
+/* Stronger focus-visible indicator for keyboard users (applies to common interactive elements) */
+:where(a,button,input,textarea,select,[tabindex]):focus-visible {
+  outline: 3px solid rgba(99,102,241,0.22);
+  outline-offset: 3px;
+}
+
+/* Skip link (visually hidden but revealed when focused) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: var(--color-foreground);
+  color: var(--color-background);
+  z-index: 9999;
+  border-radius: 6px;
+}
+
 /* Modal styles matching requested centered window design */
 .modal-inner {
   margin: 0 auto;
@@ -247,7 +274,7 @@ body {
 
 /* Right panel visual tweaks */
 .modal-right h3 { margin: 0; }
-.modal-right p { color: rgba(17,24,39,0.9); line-height: 1.6; }
+.modal-right p { color: var(--color-foreground); line-height: 1.6; }
 .modal-right h3 { color: var(--color-foreground); }
 
 /* Header actions (Live / Code) */

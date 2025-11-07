@@ -7,20 +7,24 @@ import ScrollReveal from "@/components/ScrollReveal";
 const projects = [
   {
     title: "TaskHive",
-    description: "TaskHive — a task & hierarchy management tool for teams (taskhive.tech).",
+    description:
+      "TaskHive — a collaborative platform that simplifies team organization and task management with an intuitive UI and a dynamic, admin-defined org chart. Role-based task assignment ensures clear responsibility and efficient delegation. Built modularly with an Agile approach and ready for AI-assisted features.",
     tech: ["React", "Node.js", "AI (RAG)"],
     link: "https://taskhive.tech",
     github: "https://github.com/mihai888nextlab/taskhive",
+    date: "May 2025",
     image: "https://github.com/crististg/crististg-website/blob/main/public/images/taskhive.png?raw=true",
   },
   {
     title: "Wizztech Website",
-    description: "Wizztech — a marketing site built with modern Next.js tooling.",
+    description:
+      "WizzTech Website — the official site for FTC team 19094 WizzTech from Liceul Teoretic Grigore Moisil Timișoara. A full presentation of the team, its mission, projects, and competition history.",
     tech: ["Next.js", "React", "TypeScript"],
     link: "https://wizztech-ro.vercel.app/",
     github: "https://github.com/mihai888nextlab/wizztech.ro",
+    date: "October 2025",
     image: "https://github.com/crististg/crististg-website/blob/main/public/images/wizztech-website.png?raw=true",
-  },
+  }
 ];
 
 export default function Home() {
@@ -118,6 +122,7 @@ export default function Home() {
                   <ProjectCard
                     title={p.title}
                     description={p.description}
+                    date={ p.date }
                     tech={p.tech}
                     link={p.link}
                     github={p.github}

@@ -126,10 +126,20 @@ export default function ProjectModal({ open, onClose, title, description, tech =
 
   const mainImage = images[active] || "/images/project-placeholder.svg";
 
+  const titleId = `project-modal-title-${title.replace(/\s+/g, "-").toLowerCase()}`;
+  const descId = `project-modal-desc-${title.replace(/\s+/g, "-").toLowerCase()}`;
+
   const modal = (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="presentation">
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <div ref={dialogRef} role="dialog" aria-modal="true" className="modal-inner relative z-10 w-full max-w-[1100px] max-h-[90vh] overflow-auto">
+        <div
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+          aria-describedby={descId}
+          className="modal-inner relative z-10 w-full max-w-[1100px] max-h-[90vh] overflow-auto"
+        >
           <button aria-label="Close" className="modal-close micro-focus" onClick={onClose}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
               <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -143,14 +153,15 @@ export default function ProjectModal({ open, onClose, title, description, tech =
               </div>
 
               {images.length > 1 && (
-                <div className="mt-3 flex gap-2 overflow-auto">
+                <div className="mt-3 flex gap-2 overflow-auto" role="list">
                   {images.map((src, i) => (
                     <button
                       key={i}
                       onClick={() => setActive(i)}
                       aria-label={`Show image ${i + 1}`}
                       aria-pressed={i === active}
-                      className={`shrink-0 w-20 h-12 rounded overflow-hidden border bg-transparent ${i === active ? "ring-2 ring-indigo-400" : "opacity-80"}`}
+                      className={`shrink-0 w-20 h-12 rounded overflow-hidden border bg-transparent micro-focus ${i === active ? "ring-2 ring-indigo-400" : "opacity-80"}`}
+                      role="listitem"
                     >
                       <Image src={src} alt={`${title} thumb ${i + 1}`} width={160} height={96} className="object-cover" />
                     </button>
@@ -163,11 +174,11 @@ export default function ProjectModal({ open, onClose, title, description, tech =
 
             <div className="modal-right modal-panel">
               <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <h3 id={titleId} className="text-lg font-semibold">{title}</h3>
                 </div>
 
                 <div className="modal-body">
-                  <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300">{description}</p>
+                  <p id={descId} className="mt-3 text-sm text-zinc-700 dark:text-zinc-300">{description}</p>
 
                   {date && (
                     <div className="mt-4">

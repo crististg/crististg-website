@@ -24,8 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-foreground)]">
+          {/* Accessible skip link for keyboard users */}
+          <a className="skip-link" href="#content">Skip to content</a>
           <Header />
-          <main className="mx-auto max-w-6xl px-6 py-16">{children}</main>
+          <main id="content" className="mx-auto max-w-6xl px-6 py-16">{children}</main>
           <Footer />
         </div>
       </body>
