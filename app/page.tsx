@@ -16,15 +16,15 @@ const projects = [
     image: "https://github.com/crististg/crististg-website/blob/main/public/images/taskhive.png?raw=true",
   },
   {
-    title: "Wizztech Website",
+    title: "EcoTag",
     description:
-      "WizzTech Website — the official site for FTC team 19094 WizzTech from Liceul Teoretic Grigore Moisil Timișoara. A full presentation of the team, its mission, projects, and competition history.",
-    tech: ["Next.js", "React", "TypeScript"],
-    link: "https://wizztech-ro.vercel.app/",
-    github: "https://github.com/mihai888nextlab/wizztech.ro",
-    date: "October 2025",
-    image: "https://github.com/crististg/crististg-website/blob/main/public/images/wizztech-website.png?raw=true",
-  }
+      "EcoTag — Scan. Compare. Decide. EcoTag helps shoppers make faster, more sustainable purchasing decisions by surfacing concise, trustworthy sustainability information right where choices are made (product pages and in-store barcode scanning). Created for the UniHack 2025 hackathon.",
+    tech: ["TypeScript", "React", "WebExtension"],
+    link: "",
+    github: "https://github.com/mihai888nextlab/ecotag",
+    date: "November 2025",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/ecotag.png?raw=true",
+  },
 ];
 
 export default function Home() {
