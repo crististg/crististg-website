@@ -53,6 +53,16 @@ const projects = [
     date: "October 2025",
     image: "https://github.com/crististg/crististg-website/blob/main/public/images/comppg.png?raw=true",
   },
+  {
+    title: "EcoTag",
+    description:
+      "EcoTag — Scan. Compare. Decide. EcoTag helps shoppers make faster, more sustainable purchasing decisions by surfacing concise, trustworthy sustainability information right where choices are made (product pages and in-store barcode scanning). Created for the UniHack 2025 hackathon.",
+    tech: ["TypeScript", "React", "WebExtension"],
+    link: "",
+    github: "https://github.com/mihai888nextlab/ecotag",
+    date: "November 2025",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/ecotag.png?raw=true",
+  },
 ];
 
 export default function ProjectsPage() {
