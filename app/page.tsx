@@ -25,6 +25,16 @@ const projects = [
     date: "November 2025",
     image: "https://github.com/crististg/crististg-website/blob/main/public/images/ecotag.png?raw=true",
   },
+  {
+    title: "FRDS Calendar Lot",
+    description:
+      "FRDS Calendar Lot — a platform built for the National Dancesport Federation of Romania to let judges and dancers view and maintain a database of events they participated in, with event details and photos. Created to help officials and athletes easily find participation history and event media.",
+    tech: ["React", "Next.js"],
+    link: "",
+    github: "https://github.com/crististg/FRDS-Calendar-Lot",
+    date: "November 2025",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/frds-calendar.png?raw=true",
+  },
 ];
 
 export default function Home() {
