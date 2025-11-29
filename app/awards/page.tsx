@@ -1,30 +1,29 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import Timeline from "@/components/Timeline";
 
 export default function AwardsPage() {
-  const awards = [
-    { title: "Digital Innovation & Creativity — TaskHive (Silver Medal, 5th place)", year: 2025, org: "National Olympiad" },
-    { title: "National Olympiad in Informatics — 57th place", year: 2025, org: "National Olympiad" },
+  const items = [
+    // 2025 events (CoderDojo was the first thing in 2025)
+    { year: "2025", title: "CoderDojo @Moisil", subtitle: "Founder & Mentor", description: "Organise and mentor beginner coding workshops for school students." },
+    { year: "2025", title: "National Olympiad in Informatics", subtitle: "Participant", description: "Placed 57th in the National Olympiad in Informatics." },
+    { year: "2025", title: "Digital Innovation & Creativity — TaskHive", subtitle: "5th Place (Silver)", description: "Awarded 5th Place and a Silver Medal in the Digital Innovation & Creativity National Olympiad for TaskHive.", link: "https://taskhive.tech" },
+    // 2024 event
+    { year: "2024", title: "FTC — WizzTech", subtitle: "Leader (Finance & Marketing)", description: "Leading finance and marketing efforts for the school robotics team and contributing to design and outreach." },
   ];
+
+  // sort oldest -> newest by numeric year (handles missing years)
+  items.sort((a, b) => (Number(a.year || 0) - Number(b.year || 0)) || 0);
 
   return (
     <section className="py-8">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal delay={0}><h1 className="text-3xl font-bold">Awards</h1></ScrollReveal>
-        <ul className="mt-6 space-y-4">
-          {awards.map((a, i) => (
-            <ScrollReveal key={a.title} delay={i * 80}>
-              <li className="rounded-md border p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-semibold">{a.title}</div>
-                    <div className="text-sm text-zinc-500">{a.org}</div>
-                  </div>
-                  <div className="text-sm text-zinc-500">{a.year}</div>
-                </div>
-              </li>
-            </ScrollReveal>
-          ))}
-        </ul>
+        <ScrollReveal delay={0}><h1 className="text-3xl font-bold">Awards & Activities</h1></ScrollReveal>
+
+        <div className="mt-6">
+          <div className="modal-panel p-8">
+            <Timeline heading="Awards & Activities" items={items} />
+          </div>
+        </div>
       </div>
     </section>
   );

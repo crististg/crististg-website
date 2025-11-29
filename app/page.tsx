@@ -4,38 +4,7 @@ import SkillBadge from "@/components/SkillBadge";
 import HeroParallax from "@/components/HeroParallax";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const projects = [
-  {
-    title: "TaskHive",
-    description:
-      "TaskHive — a collaborative platform that simplifies team organization and task management with an intuitive UI and a dynamic, admin-defined org chart. Role-based task assignment ensures clear responsibility and efficient delegation. Built modularly with an Agile approach and ready for AI-assisted features.",
-    tech: ["React", "Node.js", "AI (RAG)"],
-    link: "https://taskhive.tech",
-    github: "https://github.com/mihai888nextlab/taskhive",
-    date: "May 2025",
-    image: "https://github.com/crististg/crististg-website/blob/main/public/images/taskhive.png?raw=true",
-  },
-  {
-    title: "EcoTag",
-    description:
-      "EcoTag — Scan. Compare. Decide. EcoTag helps shoppers make faster, more sustainable purchasing decisions by surfacing concise, trustworthy sustainability information right where choices are made (product pages and in-store barcode scanning). Created for the UniHack 2025 hackathon.",
-    tech: ["TypeScript", "React", "WebExtension"],
-    link: "",
-    github: "https://github.com/mihai888nextlab/ecotag",
-    date: "November 2025",
-    image: "https://github.com/crististg/crististg-website/blob/main/public/images/ecotag.png?raw=true",
-  },
-  {
-    title: "FRDS Calendar Lot",
-    description:
-      "FRDS Calendar Lot — a platform built for the National Dancesport Federation of Romania to let judges and dancers view and maintain a database of events they participated in, with event details and photos. Created to help officials and athletes easily find participation history and event media.",
-    tech: ["React", "Next.js"],
-    link: "",
-    github: "https://github.com/crististg/FRDS-Calendar-Lot",
-    date: "November 2025",
-    image: "https://github.com/crististg/crististg-website/blob/main/public/images/frds-calendar.png?raw=true",
-  },
-];
+import projects from "@/data/projects";
 
 export default function Home() {
   return (
@@ -55,9 +24,9 @@ export default function Home() {
 
             <ScrollReveal delay={240}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="mailto:hello@cristi.example" className="rounded-full bg-black px-4 py-2 text-sm text-white transition-transform hover:scale-105">Work with me</a>
-                <Link href="projects" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">See projects</Link>
-                <Link href="about" className="rounded-full border px-4 py-2 text-sm transition-transform hover:scale-105">About me</Link>
+                <a href="mailto:hello@cristi.example" className="btn text-white bg-black px-4 py-2 text-sm transition-transform hover:scale-105">Work with me</a>
+                <Link href="projects" className="btn px-4 py-2 text-sm transition-transform hover:scale-105">See projects</Link>
+                <Link href="about" className="btn px-4 py-2 text-sm transition-transform hover:scale-105">About me</Link>
               </div>
             </ScrollReveal>
           </div>
@@ -126,7 +95,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-2xl font-semibold">Projects</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {projects.map((p, i) => (
+            {projects.slice(0, 2).map((p, i) => (
               <ScrollReveal key={p.title} delay={i * 80}>
                 <div>
                   <ProjectCard

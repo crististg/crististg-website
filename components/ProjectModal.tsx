@@ -149,10 +149,12 @@ export default function ProjectModal({ open, onClose, title, description, tech =
           <div className="p-4 modal-columns">
             <div className="modal-left modal-panel">
               <div className="relative modal-image-frame w-full h-72 sm:h-[440px] bg-black/5 rounded overflow-hidden">
-                <Image src={mainImage} alt={`${title} screenshot`} fill className="object-cover" sizes="(max-width: 640px) 100vw, 1200px" />
+                <div className="w-full h-full">
+                  <Image src={mainImage} alt={`${title} screenshot`} fill className="object-cover" sizes="(max-width: 640px) 100vw, 1200px" />
+                </div>
               </div>
 
-              {images.length > 1 && (
+                  {images.length > 1 && (
                 <div className="mt-3 flex gap-2 overflow-auto" role="list">
                   {images.map((src, i) => (
                     <button
@@ -163,7 +165,7 @@ export default function ProjectModal({ open, onClose, title, description, tech =
                       className={`shrink-0 w-20 h-12 rounded overflow-hidden border bg-transparent micro-focus ${i === active ? "ring-2 ring-indigo-400" : "opacity-80"}`}
                       role="listitem"
                     >
-                      <Image src={src} alt={`${title} thumb ${i + 1}`} width={160} height={96} className="object-cover" />
+                          <Image src={src} alt={`${title} thumb ${i + 1}`} width={160} height={96} className="object-cover" />
                     </button>
                   ))}
                 </div>

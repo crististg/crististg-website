@@ -3,20 +3,52 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
+  /* Design tokens */
+  --color-primary: #6366f1; /* indigo-500 */
+  --color-accent: #06b6d4; /* cyan-500 */
+  --color-surface: #ffffff;
+  --color-border: rgba(2,6,23,0.06);
+  --color-muted: rgba(23,23,23,0.65);
+  --color-shadow: 0 8px 30px rgba(2,6,23,0.06);
+  --color-foreground-rgb: 23,23,23;
+  /* Map public color tokens to base values so components can use --color-foreground / --color-background */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    /* dark tokens */
+    --color-surface: #0a0a0a;
+    --color-border: rgba(255,255,255,0.06);
+    --color-muted: rgba(255,255,255,0.72);
+    --color-shadow: 0 18px 40px rgba(2,6,23,0.5);
   }
+}
+
+/* Theme classes used for manual toggling (overrides system preference when applied) */
+.theme-light,
+[data-theme="light"] {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-surface: #ffffff;
+  --color-border: rgba(2,6,23,0.06);
+  --color-muted: rgba(23,23,23,0.65);
+  --color-shadow: 0 8px 30px rgba(2,6,23,0.06);
+  --color-foreground-rgb: 23,23,23;
+}
+.theme-dark,
+[data-theme="dark"] {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --color-surface: #0a0a0a;
+  --color-border: rgba(255,255,255,0.06);
+  --color-muted: rgba(255,255,255,0.72);
+  --color-shadow: 0 18px 40px rgba(2,6,23,0.5);
+  --color-foreground-rgb: 255,255,255;
 }
 
 body {
@@ -32,6 +64,9 @@ body {
   justify-content: center;
   border-radius: 9999px;
   padding: 0.5rem 1rem;
+  background: linear-gradient(180deg, rgba(99,102,241,0.08), rgba(99,102,241,0.04));
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
 }
 
 .fade-up {
@@ -116,6 +151,9 @@ body {
   border-radius: 9999px;
   transition: transform 200ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms ease, background-color 160ms ease;
   will-change: transform, box-shadow;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
 }
 .micro-btn:hover,
 .micro-btn:focus {
@@ -142,7 +180,15 @@ body {
 }
 .micro-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(2,6,23,0.06);
+  box-shadow: var(--color-shadow);
+}
+
+/* Reusable card utility to keep visuals consistent */
+.card {
+  background: var(--color-surface);
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(2,6,23,0.04);
 }
 .micro-card .card-image {
   transition: transform 420ms cubic-bezier(.2,.9,.3,1);
@@ -230,7 +276,6 @@ body {
   border-radius: 8px;
   padding: 16px;
 }
-.modal-panel { background: transparent; }
 .modal-inner {
   padding: 6px; /* small outer padding so inner panels have breathing room */
 }
@@ -347,9 +392,6 @@ body {
   border-right: 1px solid rgba(2,6,23,0.04);
   padding-right: 12px;
 }
-.modal-right {
-  padding-left: 12px;
-}
 .modal-divider {
   position: absolute;
   left: 50%;
@@ -357,8 +399,6 @@ body {
   bottom: 8%;
   width: 1px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(2,6,23,0.06));
-  transform: translateX(-0.5px);
-  pointer-events: none;
 }
 .modal-close {
   position: absolute;
