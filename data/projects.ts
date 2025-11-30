@@ -9,7 +9,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind"],
     link: "#",
     github: "https://github.com/crististg/crististg-website",
-    image: "/images/personal-website.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/personal-website.png?raw=true",
     slug: "personal-website",
   },
   {
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     link: "https://wizztech-ro.vercel.app/",
     github: "https://github.com/mihai888nextlab/wizztech.ro",
     date: "October 2025",
-    image: "/images/wizztech-website.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/wizztech-website.png?raw=true",
     slug: "wizztech-website",
   },
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     link: "https://andance.vercel.app/",
     github: "https://github.com/crististg/andance-romanian-rhythm",
     date: "August 2025",
-    image: "/images/andance-website.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/andance-website.png?raw=true",
     slug: "andance-website",
   },
   {
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     link: "https://taskhive.tech",
     github: "https://github.com/mihai888nextlab/taskhive",
     date: "May 2025",
-    image: "/images/taskhive.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/taskhive.png?raw=true",
     slug: "taskhive",
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     tech: ["C++"],
     github: "https://github.com/crististg/comppg",
     date: "October 2025",
-    image: "/images/comppg.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/comppg.png?raw=true",
     slug: "comppg",
   },
   {
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     link: "",
     github: "https://github.com/mihai888nextlab/ecotag",
     date: "November 2025",
-    image: "/images/ecotag.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/ecotag.png?raw=true",
     slug: "ecotag",
   },
   {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     link: "",
     github: "https://github.com/crististg/FRDS-Calendar-Lot",
     date: "November 2025",
-    image: "/images/frds-calendar.png",
+  image: "https://github.com/crististg/crististg-website/blob/main/public/images/frds-calendar.png?raw=true",
     slug: "frds-calendar-lot",
   },
 ];

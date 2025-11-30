@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function ProjectCard({ title, description, tech = [], link, image, github, date }: Props) {
-  const imgSrc = image || "/images/project-placeholder.svg";
+  const imgSrc = image || "https://github.com/crististg/crististg-website/blob/main/public/images/project-placeholder.svg?raw=true";
   const [open, setOpen] = useState(false);
 
   return (

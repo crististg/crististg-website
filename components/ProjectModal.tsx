@@ -124,7 +124,7 @@ export default function ProjectModal({ open, onClose, title, description, tech =
 
   if (!open) return null;
 
-  const mainImage = images[active] || "/images/project-placeholder.svg";
+  const mainImage = images[active] || "https://github.com/crististg/crististg-website/blob/main/public/images/project-placeholder.svg?raw=true";
 
   const titleId = `project-modal-title-${title.replace(/\s+/g, "-").toLowerCase()}`;
   const descId = `project-modal-desc-${title.replace(/\s+/g, "-").toLowerCase()}`;

@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function OptimizedImage({ src, alt = "", className = "", width, height, fill = false, sizes }: Props) {
-  const fallback = "/images/project-placeholder.svg";
+  const fallback = "https://github.com/crististg/crististg-website/blob/main/public/images/project-placeholder.svg?raw=true";
   const resolved = src || fallback;
 
   // next/image supports local and remote images if allowed in next.config
