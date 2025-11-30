@@ -203,10 +203,10 @@ export default function ProjectModal({ open, onClose, title, description, tech =
 
                 <div className="modal-actions-bottom">
                   {link && (
-                    <a href={link} target="_blank" rel="noreferrer" className="micro-btn micro-focus modal-action-btn px-3 py-1">Live</a>
+                    <a href={link} target="_blank" rel="noreferrer noopener" className="micro-btn micro-focus modal-action-btn px-3 py-1">Live</a>
                   )}
                   {github && (
-                    <a href={github} target="_blank" rel="noreferrer" className="micro-btn micro-focus modal-action-btn px-3 py-1">Code</a>
+                    <a href={github} target="_blank" rel="noreferrer noopener" className="micro-btn micro-focus modal-action-btn px-3 py-1">Code</a>
                   )}
                 </div>
             </div>

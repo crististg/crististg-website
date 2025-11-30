@@ -15,7 +15,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-          <nav className="hidden items-center gap-6 text-sm sm:flex">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-6 text-sm sm:flex">
           <Link href="/projects" className="micro-link">Projects</Link>
           <Link href="/skills" className="micro-link">Skills</Link>
           <Link href="/about" className="micro-link">About</Link>
@@ -24,7 +24,7 @@ export default function Header() {
          <ThemeToggle />
         </nav>
 
-        {/* Mobile actions */}
+  {/* Mobile actions */}
         <div className="sm:hidden">
           <button
             aria-label="Toggle menu"
@@ -40,7 +40,7 @@ export default function Header() {
 
       {/* Mobile menu panel */}
       {open && (
-  <div className="sm:hidden border-t border-black/4 bg-(--color-background)">
+  <nav aria-label="Mobile navigation" className="sm:hidden border-t border-black/4 bg-(--color-background)">
           <div className="mx-auto max-w-6xl px-6 py-4">
             <div className="flex flex-col gap-3 text-sm">
               <Link href="/projects" onClick={() => setOpen(false)} className="block micro-link">Projects</Link>
@@ -53,7 +53,7 @@ export default function Header() {
                 </div>
             </div>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

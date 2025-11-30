@@ -76,7 +76,7 @@ export default function Timeline({ items, heading = "Timeline" }: Props) {
 
                           {it.link && (
                             <div className="shrink-0 ml-4">
-                              <a href={it.link} target="_blank" rel="noreferrer" className={`text-xs ${linkClass}`}>Learn more →</a>
+                              <a href={it.link} target="_blank" rel="noreferrer noopener" className={`text-xs ${linkClass}`}>Learn more →</a>
                             </div>
                           )}
                         </div>

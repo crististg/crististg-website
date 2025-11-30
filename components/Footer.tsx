@@ -9,7 +9,7 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/cristi_stg/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label="Instagram"
               className="micro-icon"
             >
@@ -21,7 +21,7 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/in/cristian-stiegelbauer/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label="LinkedIn"
               className="micro-icon"
             >
@@ -35,7 +35,7 @@ export default function Footer() {
             <a
               href="https://github.com/crististg/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label="GitHub"
               className="micro-icon"
             >
@@ -46,7 +46,7 @@ export default function Footer() {
             <a
               href="/cv.pdf"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               aria-label="Curriculum Vitae (placeholder, add /public/cv.pdf later)"
               className="micro-link"
             >
