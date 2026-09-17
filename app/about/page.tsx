@@ -9,7 +9,7 @@ export default function AboutPage() {
         </ScrollReveal>
         <ScrollReveal delay={80}>
           <p className="mt-4 text-zinc-600">
-            I’m Cristi Stiegelbauer — a 16‑year‑old high school student from Timișoara studying at Theoretical High School "Grigore Moisil". I build web applications and systems, and I enjoy mentoring others and creating tools that help teams work better.
+            I’m Cristi Stiegelbauer — a 16‑year‑old high school student from Timișoara studying at Theoretical High School &ldquo;Grigore Moisil&rdquo;. I build web applications and systems, and I enjoy mentoring others and creating tools that help teams work better.
           </p>
         </ScrollReveal>
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
         </ScrollReveal>
 
         <ScrollReveal delay={720}>
-          <p className="mt-2 text-zinc-600">Theoretical High School "Grigore Moisil", Timișoara — current student. My coursework and personal projects focus on software engineering, algorithms, and systems programming.</p>
+          <p className="mt-2 text-zinc-600">Theoretical High School &ldquo;Grigore Moisil&rdquo;, Timișoara — current student. My coursework and personal projects focus on software engineering, algorithms, and systems programming.</p>
         </ScrollReveal>
 
         <ScrollReveal delay={800}>

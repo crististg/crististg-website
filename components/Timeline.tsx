@@ -38,12 +38,11 @@ export default function Timeline({ items, heading = "Timeline" }: Props) {
   const lineColor = "bg-zinc-200/40 dark:bg-zinc-700/40";
   const bubbleBg = "bg-[var(--color-background)] border";
   const bubbleText = "text-[var(--color-foreground)]";
-  const cardBg = "bg-[var(--color-background)]";
   const descText = "text-[rgba(var(--color-foreground-rgb, 23,23,23),0.65)] dark:text-[rgba(255,255,255,0.72)]";
   const linkClass = "text-blue-600 hover:underline dark:text-blue-400";
 
   return (
-    <section aria-labelledby="timeline-heading" className={`mt-6`}>
+    <section aria-label={heading} className={`mt-6`}>
 
       <div className="mt-6 relative">
   {/* continuous vertical line (uses neutral tint so it follows site theme) */}

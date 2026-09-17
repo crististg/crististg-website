@@ -18,7 +18,7 @@ export default function Home() {
 
             <ScrollReveal delay={120}>
               <p className="mt-4 text-lg text-zinc-600 max-w-3xl">
-                I’m a 16-year-old high school student from Timișoara (Theoretical High School "Grigore Moisil"). I’m passionate about Web Development, Low-Level Programming, Operating Systems, and building community and business initiatives.
+                I’m a 16-year-old high school student from Timișoara (Theoretical High School &ldquo;Grigore Moisil&rdquo;). I’m passionate about Web Development, Low-Level Programming, Operating Systems, and building community and business initiatives.
               </p>
             </ScrollReveal>
 

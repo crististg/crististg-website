@@ -31,20 +31,17 @@ export default function ProjectModal({ open, onClose, title, description, tech =
       try {
         if (header) {
           header.setAttribute("aria-hidden", "true");
-          // @ts-ignore
-          header.inert = true;
+          (header as HTMLElement & { inert: boolean }).inert = true;
         }
         if (main) {
           main.setAttribute("aria-hidden", "true");
-          // @ts-ignore
-          main.inert = true;
+          (main as HTMLElement & { inert: boolean }).inert = true;
         }
         if (footer) {
           footer.setAttribute("aria-hidden", "true");
-          // @ts-ignore
-          footer.inert = true;
+          (footer as HTMLElement & { inert: boolean }).inert = true;
         }
-      } catch (e) {
+      } catch {
         // inert might not be supported; aria-hidden is still applied
       }
 
@@ -102,20 +99,19 @@ export default function ProjectModal({ open, onClose, title, description, tech =
       try {
         if (header) {
           header.removeAttribute("aria-hidden");
-          // @ts-ignore
-          header.inert = false;
+          (header as HTMLElement & { inert: boolean }).inert = false;
         }
         if (main) {
           main.removeAttribute("aria-hidden");
-          // @ts-ignore
-          main.inert = false;
+          (main as HTMLElement & { inert: boolean }).inert = false;
         }
         if (footer) {
           footer.removeAttribute("aria-hidden");
-          // @ts-ignore
-          footer.inert = false;
+          (footer as HTMLElement & { inert: boolean }).inert = false;
         }
-      } catch (e) {}
+      } catch {
+        // inert might not be supported
+      }
       document.body.style.overflow = "";
       // restore previous focus
       setTimeout(() => prevActiveRef.current?.focus(), 10);
@@ -155,7 +151,7 @@ export default function ProjectModal({ open, onClose, title, description, tech =
               </div>
 
                   {images.length > 1 && (
-                <div className="mt-3 flex gap-2 overflow-auto" role="list">
+                <div className="mt-3 flex gap-2 overflow-auto">
                   {images.map((src, i) => (
                     <button
                       key={i}
@@ -163,7 +159,6 @@ export default function ProjectModal({ open, onClose, title, description, tech =
                       aria-label={`Show image ${i + 1}`}
                       aria-pressed={i === active}
                       className={`shrink-0 w-20 h-12 rounded overflow-hidden border bg-transparent micro-focus ${i === active ? "ring-2 ring-indigo-400" : "opacity-80"}`}
-                      role="listitem"
                     >
                           <Image src={src} alt={`${title} thumb ${i + 1}`} width={160} height={96} className="object-cover" />
                     </button>
