@@ -2,6 +2,28 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    title: "CoderDojo @Moisil",
+    description:
+      "CoderDojo @Moisil — the official website for CoderDojo Timișoara @Moisil, a coding club for younger students. Built to help organize local workshops and make it easy for parents and mentors to find sessions and register.",
+    date: "November 2025",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    link: "https://crististg.github.io/coderdojo-moisil/",
+    github: "https://github.com/crististg/coderdojo-moisil",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/coderdojo-moisil.png?raw=true",
+    slug: "coderdojo-moisil",
+  },
+  {
+    title: "Synaro",
+    description:
+      "Synaro — Transform ideas into running software, instantly. A developer infrastructure platform that takes a plain-language description of an application and produces a fully scaffolded, containerized, running project — combining AI-driven code generation with automated environment provisioning.",
+    date: "May 2026",
+    tech: ["Next.js", "TypeScript", "Docker", "AI"],
+    link: "https://synaro.tech",
+    github: "https://github.com/mihai888nextlab/synaro",
+    image: "https://github.com/crististg/crististg-website/blob/main/public/images/synaro.png?raw=true",
+    slug: "synaro",
+  },
+  {
     title: "Personal Website",
     description:
       "Personal Website — a portfolio and presentation of my real-world web development skills, awards, projects, and personality presented with a minimalist style. It serves as a meaningful presentation of my work and design approach. Created in November 2025.",

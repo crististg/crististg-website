@@ -38,9 +38,7 @@ function Icon({ name }: { name: string }) {
   );
 }
 
-export default function SkillBadge({ name, className = "" }: Props) {
-  const percent = ("percent" in (arguments[0] || {}) && (arguments[0] as any).percent) || undefined;
-  const level = ("level" in (arguments[0] || {}) && (arguments[0] as any).level) || undefined;
+export default function SkillBadge({ name, level, percent, className = "" }: Props) {
 
   return (
     <div className={`${className}`}>
